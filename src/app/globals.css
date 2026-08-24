@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  /* Base corporate colors */
+  --color-corporate-blue: #0a2540;
+  --color-corporate-blue-dark: #061627;
+  --color-tech-cyan: #00c2ff;
+
+  /* Sub-brand accents */
+  --color-arclocal-green: #16a34a;
+  --color-arclocal-green-light: #dcfce7;
+  --color-officetrail-orange: #f97316;
+  --color-officetrail-orange-light: #ffedd5;
+
+  /* Neutrals */
+  --color-surface-white: #ffffff;
+  --color-cloud-gray: #f6f8fb;
+  --color-slate-gray: #334155;
+  --color-slate-gray-dark: #1e293b;
+  --color-border-gray: #e2e8f0;
+
+  /* Page accent — overridden per sub-brand route wrapper */
+  --color-accent: var(--color-corporate-blue);
+  --color-accent-contrast: var(--color-tech-cyan);
+
+  --background: var(--color-surface-white);
+  --foreground: var(--color-slate-gray-dark);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-corporate-blue: var(--color-corporate-blue);
+  --color-corporate-blue-dark: var(--color-corporate-blue-dark);
+  --color-tech-cyan: var(--color-tech-cyan);
+  --color-arclocal-green: var(--color-arclocal-green);
+  --color-arclocal-green-light: var(--color-arclocal-green-light);
+  --color-officetrail-orange: var(--color-officetrail-orange);
+  --color-officetrail-orange-light: var(--color-officetrail-orange-light);
+  --color-surface-white: var(--color-surface-white);
+  --color-cloud-gray: var(--color-cloud-gray);
+  --color-slate-gray: var(--color-slate-gray);
+  --color-slate-gray-dark: var(--color-slate-gray-dark);
+  --color-border-gray: var(--color-border-gray);
+  --color-accent: var(--color-accent);
+  --color-accent-contrast: var(--color-accent-contrast);
+
+  --font-display: var(--font-jakarta);
+  --font-body: var(--font-inter);
+}
+
+/* Sub-brand theme overrides: wrap a route's content in these classes
+   to swap the --color-accent token per PRD section G.3. */
+.theme-arclocal {
+  --color-accent: var(--color-arclocal-green);
+  --color-accent-contrast: var(--color-arclocal-green-light);
+}
+
+.theme-officetrail {
+  --color-accent: var(--color-officetrail-orange);
+  --color-accent-contrast: var(--color-officetrail-orange-light);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), var(--font-body), sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes count-node-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+}
+
+.animate-node-pulse {
+  animation: count-node-pulse 3s ease-in-out infinite;
+}
