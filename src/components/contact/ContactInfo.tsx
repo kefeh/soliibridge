@@ -1,17 +1,17 @@
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
-
-const items = [
-  {
-    icon: MapPin,
-    label: "Address",
-    value: "Counselor's Street Block2B1 Njengang, Bamenda, Cameroon",
-  },
-  { icon: Phone, label: "Phone", value: "+237 675 40 90 73" },
-  { icon: Mail, label: "Email", value: "info@soliibridge.com" },
-  { icon: Clock, label: "Office Hours", value: "Monday – Friday, 8:00 AM – 5:00 PM" },
-];
+import { getContentBlock } from "@/lib/db";
+import { contactSeed } from "@/lib/cms-seed";
 
 export default function ContactInfo() {
+  const info = getContentBlock("cms:contact:info", contactSeed.info);
+
+  const items = [
+    { icon: MapPin, label: "Address", value: info.address },
+    { icon: Phone, label: "Phone", value: info.phone },
+    { icon: Mail, label: "Email", value: info.email },
+    { icon: Clock, label: "Office Hours", value: info.hours },
+  ];
+
   return (
     <div className="flex flex-col gap-6 rounded-2xl border border-border-gray bg-surface-white p-8 sm:p-10">
       {items.map((item) => (

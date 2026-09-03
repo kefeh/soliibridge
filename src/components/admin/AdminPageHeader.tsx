@@ -7,16 +7,22 @@ import Button from "@/components/ui/Button";
 type AdminPageHeaderProps = {
   title: string;
   description?: string;
-  onSaveAll: () => void;
+  onSaveAll: () => Promise<void>;
 };
 
 export default function AdminPageHeader({ title, description, onSaveAll }: AdminPageHeaderProps) {
+  const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const handleSave = () => {
-    onSaveAll();
-    setSaved(true);
-    window.setTimeout(() => setSaved(false), 2500);
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await onSaveAll();
+      setSaved(true);
+      window.setTimeout(() => setSaved(false), 2500);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -29,11 +35,18 @@ export default function AdminPageHeader({ title, description, onSaveAll }: Admin
         {saved && (
           <span className="flex items-center gap-1.5 text-sm font-medium text-arclocal-green">
             <CheckCircle2 size={16} strokeWidth={1.5} />
-            Saved locally
+            Saved
           </span>
         )}
-        <Button type="button" variant="primary" tone="accent" onClick={handleSave}>
-          Save Changes
+        <Button
+          type="button"
+          variant="primary"
+          tone="accent"
+          onClick={handleSave}
+          disabled={saving}
+          className="disabled:opacity-60"
+        >
+          {saving ? "Saving..." : "Save Changes"}
         </Button>
       </div>
     </div>

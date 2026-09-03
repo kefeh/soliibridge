@@ -57,8 +57,7 @@ export default function AdminDashboardPage() {
         </h1>
         <p className="mt-1 text-sm text-slate-gray">
           Manage the content shown across the SoliiBridge website. Changes save
-          locally in this browser — this CMS isn&apos;t connected to a backend
-          yet.
+          immediately and appear on the live site.
         </p>
       </div>
 

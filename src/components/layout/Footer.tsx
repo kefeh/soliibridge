@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
+import { getContentBlock } from "@/lib/db";
+import { contactSeed } from "@/lib/cms-seed";
 
 const columns = [
   {
@@ -32,6 +34,8 @@ const columns = [
 ];
 
 export default function Footer() {
+  const info = getContentBlock("cms:contact:info", contactSeed.info);
+
   return (
     <footer className="bg-corporate-blue-dark text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
@@ -46,15 +50,15 @@ export default function Footer() {
           <ul className="mt-6 space-y-3 text-sm text-white/70">
             <li className="flex items-start gap-3">
               <MapPin size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-tech-cyan" />
-              Counselor&apos;s Street Block2B1 Njengang, Bamenda, Cameroon
+              {info.address}
             </li>
             <li className="flex items-center gap-3">
               <Phone size={16} strokeWidth={1.5} className="shrink-0 text-tech-cyan" />
-              +237 675 40 90 73
+              {info.phone}
             </li>
             <li className="flex items-center gap-3">
               <Mail size={16} strokeWidth={1.5} className="shrink-0 text-tech-cyan" />
-              info@soliibridge.com
+              {info.email}
             </li>
           </ul>
         </div>

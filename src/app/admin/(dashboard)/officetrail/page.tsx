@@ -1,6 +1,6 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { officetrailSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
@@ -8,26 +8,28 @@ import RepeatableList from "@/components/admin/RepeatableList";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function OfficeTrailCmsPage() {
-  const hero = usePersistentState("cms:officetrail:hero", officetrailSeed.hero);
-  const categories = usePersistentState("cms:officetrail:categories", officetrailSeed.categories);
-  const printingItems = usePersistentState(
+  const hero = useContentSection("cms:officetrail:hero", officetrailSeed.hero);
+  const categories = useContentSection("cms:officetrail:categories", officetrailSeed.categories);
+  const printingItems = useContentSection(
     "cms:officetrail:printingItems",
     officetrailSeed.printingItems
   );
-  const officeSupplyItems = usePersistentState(
+  const officeSupplyItems = useContentSection(
     "cms:officetrail:officeSupplyItems",
     officetrailSeed.officeSupplyItems
   );
-  const services = usePersistentState("cms:officetrail:services", officetrailSeed.services);
-  const portal = usePersistentState("cms:officetrail:portal", officetrailSeed.portal);
+  const services = useContentSection("cms:officetrail:services", officetrailSeed.services);
+  const portal = useContentSection("cms:officetrail:portal", officetrailSeed.portal);
 
-  const saveAll = () => {
-    hero.save();
-    categories.save();
-    printingItems.save();
-    officeSupplyItems.save();
-    services.save();
-    portal.save();
+  const saveAll = async () => {
+    await Promise.all([
+      hero.save(),
+      categories.save(),
+      printingItems.save(),
+      officeSupplyItems.save(),
+      services.save(),
+      portal.save(),
+    ]);
   };
 
   return (

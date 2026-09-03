@@ -4,6 +4,8 @@ import Vacancies from "@/components/careers/Vacancies";
 import ApplicationForm from "@/components/careers/ApplicationForm";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { getContentBlock } from "@/lib/db";
+import { careersSeed } from "@/lib/cms-seed";
 
 export const metadata: Metadata = {
   title: "Careers | SoliiBridge",
@@ -11,14 +13,14 @@ export const metadata: Metadata = {
     "Discover opportunities to grow your career with SoliiBridge across ArcLocal and OfficeTrail HUB.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function CareersPage() {
+  const hero = getContentBlock("cms:careers:hero", careersSeed.hero);
+
   return (
     <>
-      <PageHero
-        eyebrow="Careers"
-        title="Join the SoliiBridge Ecosystem"
-        subtitle="We are building the future of digital communications and office solutions. Discover opportunities to grow your career with us."
-      />
+      <PageHero eyebrow={hero.eyebrow} title={hero.headline} subtitle={hero.subheading} />
       <Vacancies />
       <section id="apply" className="bg-cloud-gray py-24">
         <Container>

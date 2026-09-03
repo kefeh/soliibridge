@@ -11,15 +11,35 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setError("");
+
     if (!email || !password) {
       setError("Enter an email and password to continue.");
       return;
     }
-    window.localStorage.setItem("cms_auth", "true");
-    router.push("/admin");
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!res.ok) {
+        setError("Invalid email or password.");
+        return;
+      }
+
+      router.push("/admin");
+      router.refresh();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -51,6 +71,7 @@ export default function AdminLoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@soliibridge.com"
+              autoComplete="username"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -64,16 +85,19 @@ export default function AdminLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
+              autoComplete="current-password"
             />
           </div>
           {error && <p className="text-xs font-medium text-red-600">{error}</p>}
-          <Button type="submit" variant="primary" tone="accent" className="w-full">
-            Sign In
+          <Button
+            type="submit"
+            variant="primary"
+            tone="accent"
+            className="w-full disabled:opacity-60"
+            disabled={submitting}
+          >
+            {submitting ? "Signing in..." : "Sign In"}
           </Button>
-          <p className="text-center text-xs text-slate-gray/60">
-            Demo mode — this CMS is not yet connected to a backend. Any email and
-            password will sign you in.
-          </p>
         </form>
       </div>
     </div>

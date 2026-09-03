@@ -1,18 +1,14 @@
 import Container from "@/components/ui/Container";
 import FadeInUp from "@/components/motion/FadeInUp";
-
-const partners = [
-  "Regional Banks",
-  "Telecom Operators",
-  "Corporate Clients",
-  "Universities",
-  "NGOs & Nonprofits",
-  "Government Agencies",
-];
-
-const loop = [...partners, ...partners];
+import { getContentBlock } from "@/lib/db";
+import { homeSeed } from "@/lib/cms-seed";
 
 export default function Partners() {
+  const partners = getContentBlock("cms:home:partners", homeSeed.partners).map(
+    (p) => p.name
+  );
+  const loop = [...partners, ...partners];
+
   return (
     <section className="border-y border-border-gray py-14">
       <Container>

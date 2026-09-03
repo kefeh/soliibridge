@@ -5,6 +5,8 @@ import ServiceCategories from "@/components/officetrail/ServiceCategories";
 import CatalogSection from "@/components/officetrail/CatalogSection";
 import PortalTeaser from "@/components/officetrail/PortalTeaser";
 import BottomCta from "@/components/home/BottomCta";
+import { getContentBlock } from "@/lib/db";
+import { officetrailSeed } from "@/lib/cms-seed";
 
 export const metadata: Metadata = {
   title: "OfficeTrail HUB | Documentation, Printing & Branding | SoliiBridge",
@@ -12,21 +14,20 @@ export const metadata: Metadata = {
     "Equipping your physical workspace with professional branding, premium printing, and essential office supplies.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function OfficeTrailPage() {
+  const hero = getContentBlock("cms:officetrail:hero", officetrailSeed.hero);
+
   return (
     <div className="theme-officetrail">
-      <PageHero
-        eyebrow="OfficeTrail HUB"
-        title="OfficeTrail HUB: Documentation, Printing & Branding"
-        subtitle="Equipping your physical workspace with professional branding, premium printing, and essential supplies."
-        tone="accent"
-      >
+      <PageHero eyebrow={hero.eyebrow} title={hero.headline} subtitle={hero.subheading} tone="accent">
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button href="/contact" variant="primary" tone="white">
-            Request a Quote
+            {hero.primaryCtaLabel}
           </Button>
           <Button href="#catalog" variant="secondary" tone="white">
-            Browse Catalog
+            {hero.secondaryCtaLabel}
           </Button>
         </div>
       </PageHero>

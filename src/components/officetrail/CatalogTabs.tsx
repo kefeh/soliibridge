@@ -1,43 +1,14 @@
 import { Check } from "lucide-react";
 import Tabs from "@/components/ui/Tabs";
-
-const printing = [
-  "Business Cards",
-  "Flyers",
-  "Brochures",
-  "Certificates",
-  "Receipt Books",
-  "Letterheads",
-  "Banners",
-  "Roll-up Stands",
-  "Stickers",
-];
-
-const officeSupplies = [
-  "Stationery",
-  "Files",
-  "Pens",
-  "Printers",
-  "Paper",
-  "Toners",
-  "Ink",
-  "Office Furniture",
-  "Computer & Accessories",
-];
-
-const services = [
-  { title: "Documentation", description: "Professional document preparation and formatting." },
-  { title: "Branding", description: "Business identity design across print and digital." },
-  { title: "Business Support", description: "Administrative and operational support services." },
-  { title: "Delivery Services", description: "Reliable delivery for print jobs and supply orders." },
-];
+import { getContentBlock } from "@/lib/db";
+import { officetrailSeed } from "@/lib/cms-seed";
 
 function CatalogGrid({ items }: { items: string[] }) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      {items.map((item) => (
+      {items.map((item, i) => (
         <div
-          key={item}
+          key={`${item}-${i}`}
           className="flex items-center gap-2 rounded-xl border border-border-gray bg-surface-white px-4 py-3"
         >
           <Check size={16} strokeWidth={2} className="shrink-0 text-officetrail-orange" />
@@ -48,12 +19,12 @@ function CatalogGrid({ items }: { items: string[] }) {
   );
 }
 
-function ServicesGrid() {
+function ServicesGrid({ items }: { items: { title: string; description: string }[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
-      {services.map((service) => (
+      {items.map((service, i) => (
         <div
-          key={service.title}
+          key={`${service.title}-${i}`}
           className="rounded-xl border border-border-gray bg-surface-white p-5"
         >
           <p className="font-display font-bold text-slate-gray-dark">{service.title}</p>
@@ -67,6 +38,16 @@ function ServicesGrid() {
 }
 
 export default function CatalogTabs() {
+  const printing = getContentBlock(
+    "cms:officetrail:printingItems",
+    officetrailSeed.printingItems
+  ).map((item) => item.name);
+  const officeSupplies = getContentBlock(
+    "cms:officetrail:officeSupplyItems",
+    officetrailSeed.officeSupplyItems
+  ).map((item) => item.name);
+  const services = getContentBlock("cms:officetrail:services", officetrailSeed.services);
+
   return (
     <Tabs
       tabs={[
@@ -76,7 +57,7 @@ export default function CatalogTabs() {
           label: "Office Supplies",
           content: <CatalogGrid items={officeSupplies} />,
         },
-        { id: "services", label: "Services", content: <ServicesGrid /> },
+        { id: "services", label: "Services", content: <ServicesGrid items={services} /> },
       ]}
     />
   );

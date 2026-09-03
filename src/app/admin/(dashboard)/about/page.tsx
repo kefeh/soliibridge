@@ -1,6 +1,6 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { aboutSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
@@ -8,18 +8,14 @@ import RepeatableList from "@/components/admin/RepeatableList";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function AboutCmsPage() {
-  const hero = usePersistentState("cms:about:hero", aboutSeed.hero);
-  const story = usePersistentState("cms:about:story", aboutSeed.story);
-  const vision = usePersistentState("cms:about:vision", aboutSeed.vision);
-  const mission = usePersistentState("cms:about:mission", aboutSeed.mission);
-  const coreValues = usePersistentState("cms:about:coreValues", aboutSeed.coreValues);
+  const hero = useContentSection("cms:about:hero", aboutSeed.hero);
+  const story = useContentSection("cms:about:story", aboutSeed.story);
+  const vision = useContentSection("cms:about:vision", aboutSeed.vision);
+  const mission = useContentSection("cms:about:mission", aboutSeed.mission);
+  const coreValues = useContentSection("cms:about:coreValues", aboutSeed.coreValues);
 
-  const saveAll = () => {
-    hero.save();
-    story.save();
-    vision.save();
-    mission.save();
-    coreValues.save();
+  const saveAll = async () => {
+    await Promise.all([hero.save(), story.save(), vision.save(), mission.save(), coreValues.save()]);
   };
 
   return (

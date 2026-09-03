@@ -4,6 +4,8 @@ import OurStory from "@/components/about/OurStory";
 import VisionMission from "@/components/about/VisionMission";
 import CoreValues from "@/components/about/CoreValues";
 import BottomCta from "@/components/home/BottomCta";
+import { getContentBlock } from "@/lib/db";
+import { aboutSeed } from "@/lib/cms-seed";
 
 export const metadata: Metadata = {
   title: "About | SoliiBridge",
@@ -11,14 +13,14 @@ export const metadata: Metadata = {
     "SoliiBridge bridges the gap between digital communication and essential office operations through ArcLocal and OfficeTrail HUB.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function AboutPage() {
+  const hero = getContentBlock("cms:about:hero", aboutSeed.hero);
+
   return (
     <>
-      <PageHero
-        eyebrow="About SoliiBridge"
-        title="Bridging the Gap in Digital and Physical Operations"
-        subtitle="One ecosystem, two platforms — built to help organizations communicate and operate without friction."
-      />
+      <PageHero eyebrow={hero.eyebrow} title={hero.headline} subtitle={hero.subheading} />
       <OurStory />
       <VisionMission />
       <CoreValues />

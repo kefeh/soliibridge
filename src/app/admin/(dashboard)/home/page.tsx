@@ -1,6 +1,6 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { homeSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
@@ -8,24 +8,26 @@ import RepeatableList from "@/components/admin/RepeatableList";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function HomeCmsPage() {
-  const hero = usePersistentState("cms:home:hero", homeSeed.hero);
-  const stats = usePersistentState("cms:home:stats", homeSeed.stats);
-  const services = usePersistentState("cms:home:services", homeSeed.services);
-  const whyChooseUs = usePersistentState("cms:home:whyChooseUs", homeSeed.whyChooseUs);
-  const testimonials = usePersistentState("cms:home:testimonials", homeSeed.testimonials);
-  const partners = usePersistentState("cms:home:partners", homeSeed.partners);
-  const news = usePersistentState("cms:home:news", homeSeed.news);
-  const bottomCta = usePersistentState("cms:home:bottomCta", homeSeed.bottomCta);
+  const hero = useContentSection("cms:home:hero", homeSeed.hero);
+  const stats = useContentSection("cms:home:stats", homeSeed.stats);
+  const services = useContentSection("cms:home:services", homeSeed.services);
+  const whyChooseUs = useContentSection("cms:home:whyChooseUs", homeSeed.whyChooseUs);
+  const testimonials = useContentSection("cms:home:testimonials", homeSeed.testimonials);
+  const partners = useContentSection("cms:home:partners", homeSeed.partners);
+  const news = useContentSection("cms:home:news", homeSeed.news);
+  const bottomCta = useContentSection("cms:home:bottomCta", homeSeed.bottomCta);
 
-  const saveAll = () => {
-    hero.save();
-    stats.save();
-    services.save();
-    whyChooseUs.save();
-    testimonials.save();
-    partners.save();
-    news.save();
-    bottomCta.save();
+  const saveAll = async () => {
+    await Promise.all([
+      hero.save(),
+      stats.save(),
+      services.save(),
+      whyChooseUs.save(),
+      testimonials.save(),
+      partners.save(),
+      news.save(),
+      bottomCta.save(),
+    ]);
   };
 
   return (

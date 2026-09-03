@@ -1,6 +1,6 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { careersSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
@@ -8,12 +8,11 @@ import RepeatableList from "@/components/admin/RepeatableList";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function CareersCmsPage() {
-  const hero = usePersistentState("cms:careers:hero", careersSeed.hero);
-  const vacancies = usePersistentState("cms:careers:vacancies", careersSeed.vacancies);
+  const hero = useContentSection("cms:careers:hero", careersSeed.hero);
+  const vacancies = useContentSection("cms:careers:vacancies", careersSeed.vacancies);
 
-  const saveAll = () => {
-    hero.save();
-    vacancies.save();
+  const saveAll = async () => {
+    await Promise.all([hero.save(), vacancies.save()]);
   };
 
   return (

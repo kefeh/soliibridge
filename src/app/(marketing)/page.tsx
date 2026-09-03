@@ -7,6 +7,8 @@ import Partners from "@/components/home/Partners";
 import LatestNews from "@/components/home/LatestNews";
 import BottomCta from "@/components/home/BottomCta";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

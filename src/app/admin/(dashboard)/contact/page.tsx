@@ -1,18 +1,17 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { contactSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function ContactCmsPage() {
-  const hero = usePersistentState("cms:contact:hero", contactSeed.hero);
-  const info = usePersistentState("cms:contact:info", contactSeed.info);
+  const hero = useContentSection("cms:contact:hero", contactSeed.hero);
+  const info = useContentSection("cms:contact:info", contactSeed.info);
 
-  const saveAll = () => {
-    hero.save();
-    info.save();
+  const saveAll = async () => {
+    await Promise.all([hero.save(), info.save()]);
   };
 
   return (

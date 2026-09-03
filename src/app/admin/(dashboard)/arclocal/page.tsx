@@ -1,6 +1,6 @@
 "use client";
 
-import { usePersistentState } from "@/lib/usePersistentState";
+import { useContentSection } from "@/lib/useContentSection";
 import { arclocalSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
@@ -8,14 +8,12 @@ import RepeatableList from "@/components/admin/RepeatableList";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function ArcLocalCmsPage() {
-  const hero = usePersistentState("cms:arclocal:hero", arclocalSeed.hero);
-  const features = usePersistentState("cms:arclocal:features", arclocalSeed.features);
-  const resources = usePersistentState("cms:arclocal:resources", arclocalSeed.resources);
+  const hero = useContentSection("cms:arclocal:hero", arclocalSeed.hero);
+  const features = useContentSection("cms:arclocal:features", arclocalSeed.features);
+  const resources = useContentSection("cms:arclocal:resources", arclocalSeed.resources);
 
-  const saveAll = () => {
-    hero.save();
-    features.save();
-    resources.save();
+  const saveAll = async () => {
+    await Promise.all([hero.save(), features.save(), resources.save()]);
   };
 
   return (

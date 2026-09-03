@@ -1,45 +1,8 @@
 import Container from "@/components/ui/Container";
 import Badge from "@/components/ui/Badge";
 import FadeInUp from "@/components/motion/FadeInUp";
-
-const testimonials = [
-  {
-    quote:
-      "SoliiBridge transformed how our organization communicates and handles daily documentation. Truly a reliable ecosystem.",
-    name: "Principal, Government Bilingual High School",
-    category: "Schools",
-  },
-  {
-    quote:
-      "ArcLocal's bulk SMS keeps our beneficiaries informed in real time, even in the most remote communities we serve.",
-    name: "Program Coordinator, Regional NGO",
-    category: "NGOs",
-  },
-  {
-    quote:
-      "Appointment reminders sent through ArcLocal cut our missed-appointment rate dramatically within the first month.",
-    name: "Administrator, District Hospital",
-    category: "Hospitals",
-  },
-  {
-    quote:
-      "OfficeTrail HUB handles all our branded stationery and reports — the quality and turnaround are unmatched.",
-    name: "Operations Manager, Logistics Company",
-    category: "Businesses",
-  },
-  {
-    quote:
-      "From bulletins to event banners, SoliiBridge has become our congregation's trusted print and communication partner.",
-    name: "Communications Lead, Community Church",
-    category: "Churches",
-  },
-  {
-    quote:
-      "Secure, dependable, and easy to deploy across departments — exactly what a public institution needs.",
-    name: "IT Director, Regional Council",
-    category: "Government",
-  },
-];
+import { getContentBlock } from "@/lib/db";
+import { homeSeed } from "@/lib/cms-seed";
 
 function initials(name: string) {
   return name
@@ -51,6 +14,8 @@ function initials(name: string) {
 }
 
 export default function Testimonials() {
+  const testimonials = getContentBlock("cms:home:testimonials", homeSeed.testimonials);
+
   return (
     <section className="bg-cloud-gray py-24">
       <Container>
@@ -67,7 +32,7 @@ export default function Testimonials() {
         <div className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:overflow-visible">
           {testimonials.map((testimonial, i) => (
             <FadeInUp
-              key={testimonial.name}
+              key={`${testimonial.name}-${i}`}
               delay={i * 0.05}
               className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-auto"
             >

@@ -3,8 +3,12 @@ import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import FadeInUp from "@/components/motion/FadeInUp";
+import { getContentBlock } from "@/lib/db";
+import { homeSeed } from "@/lib/cms-seed";
 
 export default function Services() {
+  const services = getContentBlock("cms:home:services", homeSeed.services);
+
   return (
     <section className="bg-cloud-gray py-24">
       <Container>
@@ -28,12 +32,11 @@ export default function Services() {
                 ArcLocal
               </h3>
               <p className="mt-3 leading-relaxed text-slate-gray">
-                Cloud-based bulk SMS platform for marketing, alerts, OTPs,
-                appointments &amp; notifications.
+                {services.arclocalDescription}
               </p>
               <div className="mt-8 flex items-center justify-between">
                 <Button href="/arclocal" variant="primary" tone="green">
-                  Launch Platform
+                  {services.arclocalCtaLabel}
                 </Button>
                 <ArrowRight
                   size={20}
@@ -52,12 +55,11 @@ export default function Services() {
                 OfficeTrail HUB
               </h3>
               <p className="mt-3 leading-relaxed text-slate-gray">
-                Professional documentation services, business branding,
-                printing, office stationery, and digital design.
+                {services.officetrailDescription}
               </p>
               <div className="mt-8 flex items-center justify-between">
                 <Button href="/officetrail" variant="primary" tone="orange">
-                  Explore Services
+                  {services.officetrailCtaLabel}
                 </Button>
                 <ArrowRight
                   size={20}

@@ -1,8 +1,13 @@
 import { Compass, Target } from "lucide-react";
 import Container from "@/components/ui/Container";
 import FadeInUp from "@/components/motion/FadeInUp";
+import { getContentBlock } from "@/lib/db";
+import { aboutSeed } from "@/lib/cms-seed";
 
 export default function VisionMission() {
+  const vision = getContentBlock("cms:about:vision", aboutSeed.vision);
+  const mission = getContentBlock("cms:about:mission", aboutSeed.mission);
+
   return (
     <section className="py-24">
       <Container className="grid gap-8 lg:grid-cols-2">
@@ -14,11 +19,7 @@ export default function VisionMission() {
             <h2 className="font-display text-2xl font-bold text-slate-gray-dark">
               Our Vision
             </h2>
-            <p className="leading-relaxed text-slate-gray">
-              To be the leading digital ecosystem where businesses seamlessly access
-              world-class SaaS solutions alongside top-tier physical documentation
-              services, empowering them to scale without friction.
-            </p>
+            <p className="leading-relaxed text-slate-gray">{vision}</p>
           </div>
         </FadeInUp>
 
@@ -30,11 +31,7 @@ export default function VisionMission() {
             <h2 className="font-display text-2xl font-bold text-slate-gray-dark">
               Our Mission
             </h2>
-            <p className="leading-relaxed text-slate-gray">
-              To deliver fast, secure, and highly reliable digital communication
-              platforms and office supply services under one unified,
-              customer-centric hub.
-            </p>
+            <p className="leading-relaxed text-slate-gray">{mission}</p>
           </div>
         </FadeInUp>
       </Container>

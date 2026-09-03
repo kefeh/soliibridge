@@ -1,6 +1,8 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import FadeInUp from "@/components/motion/FadeInUp";
+import { getContentBlock } from "@/lib/db";
+import { homeSeed } from "@/lib/cms-seed";
 
 const nodes = [
   { top: "18%", left: "12%", size: 10, delay: "0s" },
@@ -12,6 +14,8 @@ const nodes = [
 ];
 
 export default function Hero() {
+  const hero = getContentBlock("cms:home:hero", homeSeed.hero);
+
   return (
     <section className="relative overflow-hidden bg-corporate-blue">
       <div
@@ -38,31 +42,29 @@ export default function Hero() {
       <Container className="relative flex flex-col items-center gap-8 py-28 text-center lg:py-36">
         <FadeInUp>
           <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-tech-cyan">
-            ArcLocal: One Click, Thousands of Subscribers — Simple. Reliable. Trustworthy.
+            {hero.eyebrow}
           </span>
         </FadeInUp>
 
         <FadeInUp delay={0.1}>
           <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-            Empowering Businesses Through Smart Digital Communication &amp; Office
-            Solutions
+            {hero.headline}
           </h1>
         </FadeInUp>
 
         <FadeInUp delay={0.2}>
           <p className="max-w-2xl text-lg leading-relaxed text-white/70">
-            From Bulk SMS to Professional Documentation and Branding, SoliiBridge
-            helps organizations communicate, operate, and grow.
+            {hero.subheading}
           </p>
         </FadeInUp>
 
         <FadeInUp delay={0.3}>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button href="/arclocal" variant="primary" tone="green">
-              Start with ArcLocal
+              {hero.primaryCtaLabel}
             </Button>
             <Button href="/officetrail" variant="secondary" tone="white">
-              Request OfficeTrail Services
+              {hero.secondaryCtaLabel}
             </Button>
           </div>
         </FadeInUp>
