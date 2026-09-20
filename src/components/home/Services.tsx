@@ -52,7 +52,7 @@ export default function Services() {
                 <Printer size={24} strokeWidth={1.5} />
               </div>
               <h3 className="mt-6 font-display text-2xl font-bold text-slate-gray-dark">
-                OfficeTrail HUB
+                OfficeTrail
               </h3>
               <p className="mt-3 leading-relaxed text-slate-gray">
                 {services.officetrailDescription}

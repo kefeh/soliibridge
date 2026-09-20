@@ -10,7 +10,7 @@ import { careersSeed } from "@/lib/cms-seed";
 export const metadata: Metadata = {
   title: "Careers | SoliiBridge",
   description:
-    "Discover opportunities to grow your career with SoliiBridge across ArcLocal and OfficeTrail HUB.",
+    "Discover opportunities to grow your career with SoliiBridge across ArcLocal and OfficeTrail.",
 };
 
 export const dynamic = "force-dynamic";

@@ -10,7 +10,7 @@ import { aboutSeed } from "@/lib/cms-seed";
 export const metadata: Metadata = {
   title: "About | SoliiBridge",
   description:
-    "SoliiBridge bridges the gap between digital communication and essential office operations through ArcLocal and OfficeTrail HUB.",
+    "SoliiBridge bridges the gap between digital communication and essential office operations through ArcLocal and OfficeTrail.",
 };
 
 export const dynamic = "force-dynamic";

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, Search, X } from "lucide-react";
@@ -9,10 +10,23 @@ import Container from "@/components/ui/Container";
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/arclocal", label: "ArcLocal" },
-  { href: "/officetrail", label: "OfficeTrail HUB" },
+  { href: "/officetrail", label: "OfficeTrail" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
+
+function Logo() {
+  return (
+    <Image
+      src="/logo.png"
+      alt="SoliiBridge logo"
+      width={40}
+      height={40}
+      className="h-9 w-9 shrink-0 rounded-md object-contain sm:h-10 sm:w-10"
+      priority
+    />
+  );
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,6 +49,7 @@ export default function Header() {
     >
       <Container className="flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          <Logo />
           <span className="font-display text-xl font-extrabold tracking-tight text-corporate-blue">
             Solii<span className="text-tech-cyan">Bridge</span>
           </span>

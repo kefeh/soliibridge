@@ -9,7 +9,7 @@ import { getContentBlock } from "@/lib/db";
 import { officetrailSeed } from "@/lib/cms-seed";
 
 export const metadata: Metadata = {
-  title: "OfficeTrail HUB | Documentation, Printing & Branding | SoliiBridge",
+  title: "OfficeTrail | Documentation, Printing & Branding | SoliiBridge",
   description:
     "Equipping your physical workspace with professional branding, premium printing, and essential office supplies.",
 };

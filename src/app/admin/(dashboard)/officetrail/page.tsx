@@ -35,7 +35,7 @@ export default function OfficeTrailCmsPage() {
   return (
     <div>
       <AdminPageHeader
-        title="OfficeTrail HUB Page"
+        title="OfficeTrail Page"
         description="Edit the hero, service categories, catalog tabs, and portal teaser."
         onSaveAll={saveAll}
       />

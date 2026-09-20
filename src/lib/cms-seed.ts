@@ -1,11 +1,11 @@
 export const homeSeed = {
   hero: {
     eyebrow: "ArcLocal: One Click, Thousands of Subscribers — Simple. Reliable. Trustworthy.",
-    headline: "Empowering Businesses Through Smart Digital Communication & Office Solutions",
+    headline: "Supporting Businesses with Digital Communication and Office Solutions across Cameroon",
     subheading:
       "From Bulk SMS to Professional Documentation and Branding, SoliiBridge helps organizations communicate, operate, and grow.",
-    primaryCtaLabel: "Start with ArcLocal",
-    secondaryCtaLabel: "Request OfficeTrail Services",
+    primaryCtaLabel: "ArcLocal",
+    secondaryCtaLabel: "OfficeTrail",
   },
   stats: [
     { label: "SMS Delivered", target: "10000", suffix: "+" },
@@ -53,7 +53,7 @@ export const homeSeed = {
     },
     {
       quote:
-        "OfficeTrail HUB handles all our branded stationery and reports — the quality and turnaround are unmatched.",
+        "OfficeTrail handles all our branded stationery and reports — the quality and turnaround are unmatched.",
       name: "Operations Manager, Logistics Company",
       category: "Businesses",
     },
@@ -87,7 +87,7 @@ export const homeSeed = {
     },
     {
       tag: "Product Launch",
-      title: "OfficeTrail HUB expands branding and large-format printing services",
+      title: "OfficeTrail expands branding and large-format printing services",
       excerpt:
         "New equipment and an expanded catalog now cover banners, roll-up stands, and premium business branding packages.",
     },
@@ -114,7 +114,7 @@ export const aboutSeed = {
   story: {
     heading: "Our Story",
     body:
-      "Founded to bridge the gap between digital communication and essential office operations, SoliiBridge has grown into a comprehensive digital ecosystem. We started with a simple goal: to provide reliable tech solutions that empower businesses in Cameroon and beyond. Today, our dual platforms, ArcLocal and OfficeTrail HUB, serve thousands of users daily.",
+      "Founded to bridge the gap between digital communication and essential office operations, SoliiBridge has grown into a comprehensive digital ecosystem. We started with a simple goal: to provide reliable tech solutions that empower businesses in Cameroon and beyond. Today, our dual platforms, ArcLocal and OfficeTrail, serve thousands of users daily.",
   },
   vision:
     "To be the leading digital ecosystem where businesses seamlessly access world-class SaaS solutions alongside top-tier physical documentation services, empowering them to scale without friction.",
@@ -171,8 +171,8 @@ export const arclocalSeed = {
 
 export const officetrailSeed = {
   hero: {
-    eyebrow: "OfficeTrail HUB",
-    headline: "OfficeTrail HUB: Documentation, Printing & Branding",
+    eyebrow: "OfficeTrail",
+    headline: "OfficeTrail: Documentation, Printing & Branding",
     subheading:
       "Equipping your physical workspace with professional branding, premium printing, and essential supplies.",
     primaryCtaLabel: "Request a Quote",
@@ -215,7 +215,7 @@ export const officetrailSeed = {
     { title: "Delivery Services", description: "Reliable delivery for print jobs and supply orders." },
   ],
   portal: {
-    headline: "OfficeTrail Hub Portal",
+    headline: "OfficeTrail Portal",
     body: "A dedicated customer portal is on the way. Soon you'll be able to manage every print job from a single dashboard.",
   },
 };
@@ -248,7 +248,7 @@ export const careersSeed = {
       title: "B2B Sales Executive",
       location: "Bamenda, Cameroon · Full-time",
       description:
-        "Drive new business across ArcLocal and OfficeTrail HUB, building relationships with schools, NGOs, hospitals, and corporate clients.",
+        "Drive new business across ArcLocal and OfficeTrail, building relationships with schools, NGOs, hospitals, and corporate clients.",
       requirements:
         "2+ years in B2B sales or account management\nExcellent communication skills in English and French\nComfortable with outbound prospecting and client presentations\nExperience selling SaaS or office services is a plus",
     },
@@ -259,7 +259,7 @@ export const contactSeed = {
   hero: {
     eyebrow: "Contact",
     headline: "Get in Touch",
-    subheading: "Have a question about ArcLocal or OfficeTrail HUB? We'd love to hear from you.",
+    subheading: "Have a question about ArcLocal or OfficeTrail? We'd love to hear from you.",
   },
   info: {
     address: "Counselor's Street Block2B1 Njengang, Bamenda, Cameroon",

@@ -106,7 +106,7 @@ export default function HomeCmsPage() {
           />
         </AdminSection>
 
-        <AdminSection title="Services Overview" description="ArcLocal and OfficeTrail HUB summary cards.">
+        <AdminSection title="Services Overview" description="ArcLocal and OfficeTrail summary cards.">
           <div className="flex flex-col gap-6">
             <div>
               <p className="mb-3 text-sm font-bold text-arclocal-green">ArcLocal</p>
@@ -135,7 +135,7 @@ export default function HomeCmsPage() {
               </div>
             </div>
             <div className="border-t border-border-gray pt-6">
-              <p className="mb-3 text-sm font-bold text-officetrail-orange">OfficeTrail HUB</p>
+              <p className="mb-3 text-sm font-bold text-officetrail-orange">OfficeTrail</p>
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <label className={labelClass}>Description</label>

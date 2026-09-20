@@ -39,7 +39,7 @@ export default function Hero() {
         />
       ))}
 
-      <Container className="relative flex flex-col items-center gap-8 py-28 text-center lg:py-36">
+      <Container className="relative flex flex-col items-center gap-6 py-16 text-center lg:py-20">
         <FadeInUp>
           <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-tech-cyan">
             {hero.eyebrow}
@@ -47,13 +47,13 @@ export default function Hero() {
         </FadeInUp>
 
         <FadeInUp delay={0.1}>
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-3xl text-2xl font-extrabold leading-[1.15] text-white sm:text-3xl lg:text-4xl">
             {hero.headline}
           </h1>
         </FadeInUp>
 
         <FadeInUp delay={0.2}>
-          <p className="max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
             {hero.subheading}
           </p>
         </FadeInUp>
@@ -63,7 +63,7 @@ export default function Hero() {
             <Button href="/arclocal" variant="primary" tone="green">
               {hero.primaryCtaLabel}
             </Button>
-            <Button href="/officetrail" variant="secondary" tone="white">
+            <Button href="/officetrail" variant="primary" tone="orange">
               {hero.secondaryCtaLabel}
             </Button>
           </div>

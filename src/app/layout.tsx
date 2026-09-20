@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SoliiBridge | Digital Communication & Office Solutions",
   description:
-    "SoliiBridge helps organizations communicate, operate, and grow through ArcLocal cloud messaging and OfficeTrail HUB documentation, printing, and branding services.",
+    "SoliiBridge helps organizations communicate, operate, and grow through ArcLocal cloud messaging and OfficeTrail documentation, printing, and branding services.",
   openGraph: {
     title: "SoliiBridge | Digital Communication & Office Solutions",
     description:

@@ -19,7 +19,7 @@ const navItems = [
   { href: "/admin/home", label: "Home Page", icon: Home },
   { href: "/admin/about", label: "About Page", icon: Info },
   { href: "/admin/arclocal", label: "ArcLocal", icon: MessageSquareText },
-  { href: "/admin/officetrail", label: "OfficeTrail HUB", icon: Printer },
+  { href: "/admin/officetrail", label: "OfficeTrail", icon: Printer },
   { href: "/admin/careers", label: "Careers", icon: Briefcase },
   { href: "/admin/contact", label: "Contact", icon: Mail },
 ];

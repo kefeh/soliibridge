@@ -23,7 +23,7 @@ const columns = [
     ],
   },
   {
-    title: "OfficeTrail HUB",
+    title: "OfficeTrail",
     links: [
       { href: "/officetrail", label: "Printing" },
       { href: "/officetrail", label: "Office Supplies" },
@@ -65,7 +65,7 @@ export default function Footer() {
 
         {columns.map((column) => (
           <div key={column.title}>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-white/50">
+            <h3 className="text-sm font-bold tracking-wide text-white/50">
               {column.title}
             </h3>
             <ul className="mt-5 space-y-3">

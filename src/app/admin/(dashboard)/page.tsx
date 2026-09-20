@@ -31,7 +31,7 @@ const sections = [
   {
     href: "/admin/officetrail",
     icon: Printer,
-    title: "OfficeTrail HUB",
+    title: "OfficeTrail",
     description: "Hero, categories, catalog, and portal teaser.",
   },
   {
