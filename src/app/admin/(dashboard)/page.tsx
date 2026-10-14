@@ -66,9 +66,9 @@ export default function AdminDashboardPage() {
           <Link
             key={section.href}
             href={section.href}
-            className="group flex flex-col gap-4 rounded-2xl border border-border-gray bg-surface-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
+            className="group flex flex-col gap-4 rounded-2xl border border-border-gray bg-surface-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(6,42,48,0.06)]"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-corporate-blue/10 text-corporate-blue">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
               <section.icon size={20} strokeWidth={1.5} />
             </div>
             <div>
@@ -77,7 +77,7 @@ export default function AdminDashboardPage() {
               </h2>
               <p className="mt-1 text-sm text-slate-gray">{section.description}</p>
             </div>
-            <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-corporate-blue">
+            <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand">
               Manage content
               <ArrowRight
                 size={16}

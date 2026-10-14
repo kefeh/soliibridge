@@ -8,7 +8,7 @@ export default function BottomCta() {
   const bottomCta = getContentBlock("cms:home:bottomCta", homeSeed.bottomCta);
 
   return (
-    <section className="bg-corporate-blue py-20">
+    <section className="bg-brand-dark py-20">
       <Container className="flex flex-col items-center gap-6 text-center">
         <FadeInUp>
           <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">

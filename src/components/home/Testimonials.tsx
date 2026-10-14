@@ -37,14 +37,14 @@ export default function Testimonials() {
               className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-auto"
             >
               <div className="flex h-full flex-col rounded-2xl border border-border-gray bg-surface-white p-8">
-                <Badge tone="blue" className="self-start">
+                <Badge tone="brand" className="self-start">
                   {testimonial.category}
                 </Badge>
                 <p className="mt-5 flex-1 text-slate-gray leading-relaxed">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="mt-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-corporate-blue text-xs font-bold text-white">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">
                     {initials(testimonial.name)}
                   </div>
                   <p className="text-sm font-semibold text-slate-gray-dark">

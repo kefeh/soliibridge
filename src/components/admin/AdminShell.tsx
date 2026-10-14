@@ -38,8 +38,8 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-screen bg-cloud-gray">
       <aside className="fixed inset-y-0 left-0 hidden w-64 shrink-0 flex-col border-r border-border-gray bg-surface-white lg:flex">
         <div className="px-6 py-6">
-          <span className="font-display text-lg font-extrabold text-corporate-blue">
-            Solii<span className="text-tech-cyan">Bridge</span>
+          <span className="font-display text-lg font-extrabold text-brand-dark">
+            Solii<span className="text-brand">Bridge</span>
           </span>
           <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-gray/50">
             Content Manager
@@ -84,8 +84,8 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
 
       <div className="flex flex-1 flex-col lg:pl-64">
         <header className="flex items-center justify-between border-b border-border-gray bg-surface-white px-6 py-4 lg:hidden">
-          <span className="font-display text-lg font-extrabold text-corporate-blue">
-            Solii<span className="text-tech-cyan">Bridge</span> CMS
+          <span className="font-display text-lg font-extrabold text-brand-dark">
+            Solii<span className="text-brand">Bridge</span> CMS
           </span>
           <button
             type="button"

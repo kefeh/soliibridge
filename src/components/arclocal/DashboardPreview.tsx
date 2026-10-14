@@ -8,10 +8,10 @@ export default function DashboardPreview() {
   return (
     <section className="py-20">
       <Container>
-        <FadeInUp className="mx-auto max-w-4xl rounded-3xl border border-border-gray bg-surface-white p-8 shadow-[0_8px_24px_rgba(15,23,42,0.06)] sm:p-10">
+        <FadeInUp className="mx-auto max-w-4xl rounded-3xl border border-border-gray bg-surface-white p-8 shadow-[0_8px_24px_rgba(6,42,48,0.06)] sm:p-10">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-arclocal-green">
+              <p className="text-xs font-bold uppercase tracking-widest text-arclocal-green-strong">
                 Campaign Overview
               </p>
               <p className="mt-2 font-display text-2xl font-bold text-slate-gray-dark">

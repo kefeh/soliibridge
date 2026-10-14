@@ -13,7 +13,7 @@ export default function VisionMission() {
       <Container className="grid gap-8 lg:grid-cols-2">
         <FadeInUp>
           <div className="flex h-full flex-col gap-4 rounded-2xl border border-border-gray bg-surface-white p-10">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-corporate-blue/10 text-corporate-blue">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
               <Compass size={24} strokeWidth={1.5} />
             </div>
             <h2 className="font-display text-2xl font-bold text-slate-gray-dark">
@@ -25,7 +25,7 @@ export default function VisionMission() {
 
         <FadeInUp delay={0.1}>
           <div className="flex h-full flex-col gap-4 rounded-2xl border border-border-gray bg-surface-white p-10">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-tech-cyan/10 text-corporate-blue">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-bright/10 text-brand">
               <Target size={24} strokeWidth={1.5} />
             </div>
             <h2 className="font-display text-2xl font-bold text-slate-gray-dark">

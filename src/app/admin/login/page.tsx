@@ -43,15 +43,15 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-corporate-blue px-6">
+    <div className="flex min-h-screen items-center justify-center bg-brand-dark px-6">
       <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-surface-white p-8 shadow-[0_16px_48px_rgba(0,0,0,0.25)]">
         <div className="flex flex-col items-center gap-3 text-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-corporate-blue/10 text-corporate-blue">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
             <LockKeyhole size={22} strokeWidth={1.5} />
           </div>
           <div>
-            <span className="font-display text-xl font-extrabold tracking-tight text-corporate-blue">
-              Solii<span className="text-tech-cyan">Bridge</span>
+            <span className="font-display text-xl font-extrabold tracking-tight text-brand-dark">
+              Solii<span className="text-brand">Bridge</span>
             </span>
             <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-gray/60">
               Content Manager

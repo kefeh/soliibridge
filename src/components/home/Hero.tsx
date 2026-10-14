@@ -17,31 +17,18 @@ export default function Hero() {
   const hero = getContentBlock("cms:home:hero", homeSeed.hero);
 
   return (
-    <section className="relative overflow-hidden bg-corporate-blue">
+    <section className="relative overflow-hidden bg-brand-dark">
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           background:
-            "radial-gradient(circle at 18% 20%, rgba(0,194,255,0.35), transparent 45%), radial-gradient(circle at 82% 70%, rgba(0,194,255,0.25), transparent 40%)",
+            "radial-gradient(circle at 18% 20%, rgba(95,176,185,0.2), transparent 45%), radial-gradient(circle at 82% 70%, rgba(95,176,185,0.12), transparent 40%)",
         }}
       />
-      {nodes.map((node, i) => (
-        <span
-          key={i}
-          className="animate-node-pulse pointer-events-none absolute rounded-full bg-tech-cyan"
-          style={{
-            top: node.top,
-            left: node.left,
-            width: node.size,
-            height: node.size,
-            animationDelay: node.delay,
-          }}
-        />
-      ))}
 
       <Container className="relative flex flex-col items-center gap-6 py-16 text-center lg:py-20">
         <FadeInUp>
-          <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-tech-cyan">
+          <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-white">
             {hero.eyebrow}
           </span>
         </FadeInUp>

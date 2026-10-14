@@ -109,7 +109,7 @@ export default function HomeCmsPage() {
         <AdminSection title="Services Overview" description="ArcLocal and OfficeTrail summary cards.">
           <div className="flex flex-col gap-6">
             <div>
-              <p className="mb-3 text-sm font-bold text-arclocal-green">ArcLocal</p>
+              <p className="mb-3 text-sm font-bold text-arclocal-green-strong">ArcLocal</p>
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <label className={labelClass}>Description</label>

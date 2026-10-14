@@ -43,15 +43,15 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ease-out ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(15,23,42,0.06),0_8px_24px_rgba(15,23,42,0.06)] py-3"
+          ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(6,42,48,0.06),0_8px_24px_rgba(6,42,48,0.06)] py-3"
           : "bg-white/0 py-5"
       }`}
     >
       <Container className="flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
-          <span className="font-display text-xl font-extrabold tracking-tight text-corporate-blue">
-            Solii<span className="text-tech-cyan">Bridge</span>
+          <span className="font-display text-xl font-extrabold tracking-tight text-brand-dark">
+            Solii<span className="text-brand">Bridge</span>
           </span>
         </Link>
 
@@ -71,7 +71,7 @@ export default function Header() {
           <button
             type="button"
             aria-label="Search"
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-gray transition-colors hover:bg-cloud-gray hover:text-corporate-blue"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-gray transition-colors hover:bg-cloud-gray hover:text-brand"
           >
             <Search size={18} strokeWidth={1.5} />
           </button>
@@ -86,7 +86,7 @@ export default function Header() {
         <button
           type="button"
           aria-label="Toggle navigation"
-          className="flex h-11 w-11 items-center justify-center rounded-lg text-corporate-blue lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-brand lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}

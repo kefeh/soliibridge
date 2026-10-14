@@ -1,27 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Base corporate colors */
-  --color-corporate-blue: #0a2540;
-  --color-corporate-blue-dark: #061627;
-  --color-tech-cyan: #00c2ff;
+  /* Base brand colors — a teal family derived from the logo's "B" (#0aa3b3) */
+  --color-brand: #07808d;          /* buttons, links, icons on light (white text = 4.7:1) */
+  --color-brand-dark: #064650;     /* hero / large dark surfaces */
+  --color-brand-darker: #032a30;   /* stats band, footer */
+  --color-brand-bright: #5fb0b9;   /* soft highlights on dark surfaces */
 
   /* Sub-brand accents */
-  --color-arclocal-green: #16a34a;
-  --color-arclocal-green-light: #dcfce7;
-  --color-officetrail-orange: #f97316;
-  --color-officetrail-orange-light: #ffedd5;
+  /* ArcLocal green, matched to arclocal.soliibridge.com (#54a832 / #448e29) */
+  --color-arclocal-green: #54a832;         /* fills, icons, dots, chart bars */
+  --color-arclocal-green-strong: #3f8526;  /* buttons & text (white text >= 4.5:1) */
+  --color-arclocal-green-deep: #2f6f1d;    /* hero background */
+  --color-arclocal-green-light: #eff8e9;
+  --color-officetrail-orange: #b9621f;
+  --color-officetrail-orange-deep: #a35b22;
+  --color-officetrail-orange-light: #f5ebe0;
 
   /* Neutrals */
   --color-surface-white: #ffffff;
-  --color-cloud-gray: #f6f8fb;
-  --color-slate-gray: #334155;
-  --color-slate-gray-dark: #1e293b;
-  --color-border-gray: #e2e8f0;
+  --color-cloud-gray: #f1f7f7;
+  --color-slate-gray: #3d4f53;
+  --color-slate-gray-dark: #12292d;
+  --color-border-gray: #d9e5e6;
 
   /* Page accent — overridden per sub-brand route wrapper */
-  --color-accent: var(--color-corporate-blue);
-  --color-accent-contrast: var(--color-tech-cyan);
+  --color-accent: var(--color-brand);
+  --color-accent-contrast: var(--color-brand-bright);
+  --color-accent-deep: var(--color-brand-dark);
 
   --background: var(--color-surface-white);
   --foreground: var(--color-slate-gray-dark);
@@ -31,19 +37,24 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-corporate-blue: var(--color-corporate-blue);
-  --color-corporate-blue-dark: var(--color-corporate-blue-dark);
-  --color-tech-cyan: var(--color-tech-cyan);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-darker: var(--color-brand-darker);
+  --color-brand-bright: var(--color-brand-bright);
   --color-arclocal-green: var(--color-arclocal-green);
   --color-arclocal-green-light: var(--color-arclocal-green-light);
+  --color-arclocal-green-strong: var(--color-arclocal-green-strong);
+  --color-arclocal-green-deep: var(--color-arclocal-green-deep);
   --color-officetrail-orange: var(--color-officetrail-orange);
   --color-officetrail-orange-light: var(--color-officetrail-orange-light);
+  --color-officetrail-orange-deep: var(--color-officetrail-orange-deep);
   --color-surface-white: var(--color-surface-white);
   --color-cloud-gray: var(--color-cloud-gray);
   --color-slate-gray: var(--color-slate-gray);
   --color-slate-gray-dark: var(--color-slate-gray-dark);
   --color-border-gray: var(--color-border-gray);
   --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
   --color-accent-contrast: var(--color-accent-contrast);
 
   --font-display: var(--font-jakarta);
@@ -53,12 +64,14 @@
 /* Sub-brand theme overrides: wrap a route's content in these classes
    to swap the --color-accent token per PRD section G.3. */
 .theme-arclocal {
-  --color-accent: var(--color-arclocal-green);
+  --color-accent: var(--color-arclocal-green-strong);
+  --color-accent-deep: var(--color-arclocal-green-deep);
   --color-accent-contrast: var(--color-arclocal-green-light);
 }
 
 .theme-officetrail {
   --color-accent: var(--color-officetrail-orange);
+  --color-accent-deep: var(--color-officetrail-orange-deep);
   --color-accent-contrast: var(--color-officetrail-orange-light);
 }
 
@@ -85,17 +98,3 @@ h1, h2, h3, h4 {
   animation: marquee 30s linear infinite;
 }
 
-@keyframes count-node-pulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.4);
-  }
-}
-
-.animate-node-pulse {
-  animation: count-node-pulse 3s ease-in-out infinite;
-}

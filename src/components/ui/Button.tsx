@@ -19,16 +19,16 @@ const base =
 
 const solidTones: Record<Tone, string> = {
   accent: "bg-[var(--color-accent)] text-white focus-visible:outline-[var(--color-accent)]",
-  green: "bg-arclocal-green text-white focus-visible:outline-arclocal-green",
+  green: "bg-arclocal-green-strong text-white focus-visible:outline-arclocal-green-strong",
   orange: "bg-officetrail-orange text-white focus-visible:outline-officetrail-orange",
-  white: "bg-white text-corporate-blue focus-visible:outline-white",
+  white: "bg-white text-brand focus-visible:outline-white",
 };
 
 const outlineTones: Record<Tone, string> = {
   accent:
     "border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/5 focus-visible:outline-[var(--color-accent)]",
   green:
-    "border border-arclocal-green text-arclocal-green hover:bg-arclocal-green-light focus-visible:outline-arclocal-green",
+    "border border-arclocal-green-strong text-arclocal-green-strong hover:bg-arclocal-green-light focus-visible:outline-arclocal-green-strong",
   orange:
     "border border-officetrail-orange text-officetrail-orange hover:bg-officetrail-orange-light focus-visible:outline-officetrail-orange",
   white:

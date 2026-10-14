@@ -33,7 +33,7 @@ export default function AdminPageHeader({ title, description, onSaveAll }: Admin
       </div>
       <div className="flex shrink-0 items-center gap-3">
         {saved && (
-          <span className="flex items-center gap-1.5 text-sm font-medium text-arclocal-green">
+          <span className="flex items-center gap-1.5 text-sm font-medium text-arclocal-green-strong">
             <CheckCircle2 size={16} strokeWidth={1.5} />
             Saved
           </span>

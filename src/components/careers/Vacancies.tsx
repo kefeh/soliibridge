@@ -7,7 +7,7 @@ import Accordion from "@/components/ui/Accordion";
 import { getContentBlock } from "@/lib/db";
 import { careersSeed } from "@/lib/cms-seed";
 
-const TONES = ["green", "orange", "blue"] as const;
+const TONES = ["green", "orange", "brand"] as const;
 
 function slugify(text: string) {
   return text

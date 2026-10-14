@@ -5,7 +5,7 @@ type PageHeroProps = {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  tone?: "corporate" | "accent";
+  tone?: "brand" | "accent";
   children?: React.ReactNode;
 };
 
@@ -13,10 +13,10 @@ export default function PageHero({
   eyebrow,
   title,
   subtitle,
-  tone = "corporate",
+  tone = "brand",
   children,
 }: PageHeroProps) {
-  const bgClass = tone === "accent" ? "bg-[var(--color-accent)]" : "bg-corporate-blue";
+  const bgClass = tone === "accent" ? "bg-[var(--color-accent-deep)]" : "bg-brand-dark";
 
   return (
     <section className={`relative overflow-hidden ${bgClass}`}>
@@ -24,7 +24,9 @@ export default function PageHero({
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           background:
-            "radial-gradient(circle at 15% 20%, rgba(255,255,255,0.14), transparent 45%), radial-gradient(circle at 85% 80%, rgba(255,255,255,0.1), transparent 40%)",
+            tone === "accent"
+              ? "radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 45%), radial-gradient(circle at 85% 80%, rgba(255,255,255,0.05), transparent 40%)"
+              : "radial-gradient(circle at 15% 20%, rgba(95,176,185,0.2), transparent 45%), radial-gradient(circle at 85% 80%, rgba(95,176,185,0.12), transparent 40%)",
         }}
       />
       <Container className="relative flex flex-col items-center gap-6 py-24 text-center lg:py-28">

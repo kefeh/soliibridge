@@ -16,7 +16,7 @@ export default function ContactInfo() {
     <div className="flex flex-col gap-6 rounded-2xl border border-border-gray bg-surface-white p-8 sm:p-10">
       {items.map((item) => (
         <div key={item.label} className="flex items-start gap-4">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-corporate-blue/10 text-corporate-blue">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
             <item.icon size={20} strokeWidth={1.5} />
           </div>
           <div>

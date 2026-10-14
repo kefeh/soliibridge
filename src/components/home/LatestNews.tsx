@@ -7,10 +7,10 @@ import FadeInUp from "@/components/motion/FadeInUp";
 import { getContentBlock } from "@/lib/db";
 import { homeSeed } from "@/lib/cms-seed";
 
-const TAG_TONES: Record<string, "blue" | "green" | "orange" | "gray"> = {
+const TAG_TONES: Record<string, "brand" | "green" | "orange" | "gray"> = {
   Blog: "green",
   "Product Launch": "orange",
-  "Company Update": "blue",
+  "Company Update": "brand",
 };
 
 export default function LatestNews() {
@@ -30,7 +30,7 @@ export default function LatestNews() {
           </div>
           <Link
             href="/about"
-            className="hidden items-center gap-1 text-sm font-semibold text-corporate-blue sm:flex"
+            className="hidden items-center gap-1 text-sm font-semibold text-brand sm:flex"
           >
             View all articles <ArrowRight size={16} />
           </Link>
@@ -49,7 +49,7 @@ export default function LatestNews() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-gray">
                   {article.excerpt}
                 </p>
-                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-corporate-blue">
+                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
                   Read more <ArrowRight size={16} />
                 </span>
               </Card>

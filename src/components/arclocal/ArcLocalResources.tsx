@@ -39,7 +39,7 @@ export default function ArcLocalResources() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-gray">
                     {resource.description}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-arclocal-green">
+                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-arclocal-green-strong">
                     {resource.ctaLabel}
                     <ArrowRight
                       size={16}

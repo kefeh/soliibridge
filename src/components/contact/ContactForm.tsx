@@ -42,7 +42,7 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl border border-border-gray bg-surface-white p-10 text-center">
-        <CheckCircle2 size={40} strokeWidth={1.5} className="text-corporate-blue" />
+        <CheckCircle2 size={40} strokeWidth={1.5} className="text-brand" />
         <h3 className="font-display text-xl font-bold text-slate-gray-dark">
           Message Sent
         </h3>

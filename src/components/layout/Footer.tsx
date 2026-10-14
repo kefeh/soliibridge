@@ -37,11 +37,11 @@ export default function Footer() {
   const info = getContentBlock("cms:contact:info", contactSeed.info);
 
   return (
-    <footer className="bg-corporate-blue-dark text-white">
+    <footer className="bg-brand-darker text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <span className="font-display text-xl font-extrabold tracking-tight">
-            Solii<span className="text-tech-cyan">Bridge</span>
+            Solii<span className="text-brand-bright">Bridge</span>
           </span>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
             Empowering businesses through smart digital communication and office
@@ -49,15 +49,15 @@ export default function Footer() {
           </p>
           <ul className="mt-6 space-y-3 text-sm text-white/70">
             <li className="flex items-start gap-3">
-              <MapPin size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-tech-cyan" />
+              <MapPin size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-brand-bright" />
               {info.address}
             </li>
             <li className="flex items-center gap-3">
-              <Phone size={16} strokeWidth={1.5} className="shrink-0 text-tech-cyan" />
+              <Phone size={16} strokeWidth={1.5} className="shrink-0 text-brand-bright" />
               {info.phone}
             </li>
             <li className="flex items-center gap-3">
-              <Mail size={16} strokeWidth={1.5} className="shrink-0 text-tech-cyan" />
+              <Mail size={16} strokeWidth={1.5} className="shrink-0 text-brand-bright" />
               {info.email}
             </li>
           </ul>
@@ -73,7 +73,7 @@ export default function Footer() {
                 <li key={`${column.title}-${link.label}`}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-white/80 transition-colors hover:text-tech-cyan"
+                    className="text-sm font-medium text-white/80 transition-colors hover:text-brand-bright"
                   >
                     {link.label}
                   </Link>
@@ -88,10 +88,10 @@ export default function Footer() {
         <Container className="flex flex-col items-center justify-between gap-3 text-xs font-medium text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} SoliiBridge. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/contact" className="hover:text-tech-cyan">
+            <Link href="/contact" className="hover:text-brand-bright">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-tech-cyan">
+            <Link href="/contact" className="hover:text-brand-bright">
               Terms of Service
             </Link>
           </div>

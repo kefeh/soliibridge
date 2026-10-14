@@ -8,7 +8,7 @@ export default function Stats() {
   const stats = getContentBlock("cms:home:stats", homeSeed.stats);
 
   return (
-    <section className="bg-corporate-blue-dark py-20">
+    <section className="bg-brand-darker py-20">
       <Container>
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6">
           {stats.map((stat, i) => (
