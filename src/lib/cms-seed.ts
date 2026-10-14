@@ -135,8 +135,8 @@ export const arclocalSeed = {
     headline: "ArcLocal: Your Complete Messaging Platform",
     subheading:
       "Reach thousands instantly with our simple, reliable, and trustworthy cloud-based SMS platform.",
-    primaryCtaLabel: "Launch Platform",
-    secondaryCtaLabel: "Talk to Sales",
+    primaryCtaLabel: "Request Access",
+    secondaryCtaLabel: "Sign In",
   },
   features: [
     { title: "Bulk SMS", description: "Send thousands of messages in a single click." },
@@ -151,14 +151,14 @@ export const arclocalSeed = {
     {
       title: "Pricing",
       description: "Flexible plans that scale with your sending volume.",
-      ctaLabel: "Request Pricing",
+      ctaLabel: "View Pricing",
       comingSoon: "no",
     },
     {
       title: "Customer Login",
       description: "Manage campaigns and view analytics from your dashboard.",
-      ctaLabel: "Get Early Access",
-      comingSoon: "yes",
+      ctaLabel: "Sign In",
+      comingSoon: "no",
     },
     {
       title: "API Documentation",

@@ -7,6 +7,7 @@ import ArcLocalResources from "@/components/arclocal/ArcLocalResources";
 import BottomCta from "@/components/home/BottomCta";
 import { getContentBlock } from "@/lib/db";
 import { arclocalSeed } from "@/lib/cms-seed";
+import { ARCLOCAL_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "ArcLocal | Cloud Messaging Platform | SoliiBridge",
@@ -23,10 +24,10 @@ export default function ArcLocalPage() {
     <div className="theme-arclocal">
       <PageHero eyebrow={hero.eyebrow} title={hero.headline} subtitle={hero.subheading} tone="accent">
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button href="/contact" variant="primary" tone="white">
+          <Button href={ARCLOCAL_LINKS.register} variant="primary" tone="white">
             {hero.primaryCtaLabel}
           </Button>
-          <Button href="/contact" variant="secondary" tone="white">
+          <Button href={ARCLOCAL_LINKS.login} variant="secondary" tone="white">
             {hero.secondaryCtaLabel}
           </Button>
         </div>

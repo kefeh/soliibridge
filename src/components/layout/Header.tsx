@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Menu, Search, X } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { ARCLOCAL_LINKS } from "@/lib/links";
 
 type NavItem = {
   href: string;
@@ -147,7 +148,7 @@ export default function Header() {
           >
             <Search size={18} strokeWidth={1.5} />
           </button>
-          <Button href="/contact" variant="secondary">
+          <Button href={ARCLOCAL_LINKS.login} variant="secondary">
             Customer Login
           </Button>
           <Button href="/contact" variant="primary">
@@ -187,7 +188,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
-            <Button href="/contact" variant="secondary" className="w-full">
+            <Button href={ARCLOCAL_LINKS.login} variant="secondary" className="w-full">
               Customer Login
             </Button>
             <Button href="/contact" variant="primary" className="w-full">

@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { getContentBlock } from "@/lib/db";
 import { contactSeed } from "@/lib/cms-seed";
+import { ARCLOCAL_LINKS } from "@/lib/links";
 
 const columns = [
   {
@@ -17,8 +18,9 @@ const columns = [
     title: "ArcLocal",
     links: [
       { href: "/arclocal", label: "Overview" },
-      { href: "/arclocal", label: "Pricing" },
-      { href: "/arclocal", label: "Customer Login" },
+      { href: ARCLOCAL_LINKS.pricing, label: "Pricing" },
+      { href: ARCLOCAL_LINKS.register, label: "Request Access" },
+      { href: ARCLOCAL_LINKS.login, label: "Customer Login" },
       { href: "/arclocal", label: "API Documentation" },
     ],
   },

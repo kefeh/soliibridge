@@ -3,15 +3,7 @@ import Button from "@/components/ui/Button";
 import FadeInUp from "@/components/motion/FadeInUp";
 import { getContentBlock } from "@/lib/db";
 import { homeSeed } from "@/lib/cms-seed";
-
-const nodes = [
-  { top: "18%", left: "12%", size: 10, delay: "0s" },
-  { top: "30%", left: "82%", size: 14, delay: "0.4s" },
-  { top: "68%", left: "20%", size: 8, delay: "0.8s" },
-  { top: "78%", left: "70%", size: 12, delay: "1.2s" },
-  { top: "12%", left: "58%", size: 6, delay: "1.6s" },
-  { top: "50%", left: "92%", size: 8, delay: "2s" },
-];
+import { ARCLOCAL_LINKS } from "@/lib/links";
 
 export default function Hero() {
   const hero = getContentBlock("cms:home:hero", homeSeed.hero);
@@ -47,7 +39,7 @@ export default function Hero() {
 
         <FadeInUp delay={0.3}>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/arclocal" variant="primary" tone="green">
+            <Button href={ARCLOCAL_LINKS.register} variant="primary" tone="green">
               {hero.primaryCtaLabel}
             </Button>
             <Button href="/officetrail" variant="primary" tone="orange">
