@@ -52,9 +52,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex min-h-[44px] items-center gap-3 rounded-lg px-3 text-sm font-semibold transition-colors ${
+                aria-current={active ? "page" : undefined}
+                className={`relative flex min-h-[44px] items-center gap-3 rounded-lg px-3 text-sm font-semibold transition-colors ${
                   active
-                    ? "bg-corporate-blue/10 text-corporate-blue"
+                    ? "bg-brand/10 text-brand before:absolute before:inset-y-2 before:left-0 before:w-1 before:rounded-full before:bg-brand"
                     : "text-slate-gray hover:bg-cloud-gray hover:text-slate-gray-dark"
                 }`}
               >
@@ -104,8 +105,9 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 rounded-lg px-3 py-2 text-sm font-semibold ${
-                  active ? "bg-corporate-blue/10 text-corporate-blue" : "text-slate-gray"
+                aria-current={active ? "page" : undefined}
+                className={`shrink-0 rounded-t-lg border-b-2 px-3 py-2 text-sm font-semibold ${
+                  active ? "border-brand bg-brand/10 text-brand" : "border-transparent text-slate-gray"
                 }`}
               >
                 {item.label}
