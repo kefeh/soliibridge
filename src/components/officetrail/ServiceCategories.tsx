@@ -15,7 +15,7 @@ export default function ServiceCategories() {
       <Container>
         <SectionHeading
           title="Everything Your Workspace Needs"
-          subtitle="From documentation to delivery, one partner for every physical operation."
+          subtitle="From documentation to delivery, one partner for every operational needs."
         />
         <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((category, i) => {

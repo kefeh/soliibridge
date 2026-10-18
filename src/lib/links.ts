@@ -2,6 +2,7 @@
 const ARCLOCAL_APP = "https://arclocal.soliibridge.com";
 
 export const ARCLOCAL_LINKS = {
+  home: ARCLOCAL_APP,
   login: `${ARCLOCAL_APP}/login`,
   register: `${ARCLOCAL_APP}/register`,
   pricing: `${ARCLOCAL_APP}/#pricing`,

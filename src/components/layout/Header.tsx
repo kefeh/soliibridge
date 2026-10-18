@@ -148,7 +148,7 @@ export default function Header() {
           >
             <Search size={18} strokeWidth={1.5} />
           </button>
-          <Button href={ARCLOCAL_LINKS.login} variant="secondary">
+          <Button href={ARCLOCAL_LINKS.login} target="_blank" rel="noopener noreferrer" variant="secondary">
             Customer Login
           </Button>
           <Button href="/contact" variant="primary">
@@ -188,7 +188,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
-            <Button href={ARCLOCAL_LINKS.login} variant="secondary" className="w-full">
+            <Button href={ARCLOCAL_LINKS.login} target="_blank" rel="noopener noreferrer" variant="secondary" className="w-full">
               Customer Login
             </Button>
             <Button href="/contact" variant="primary" className="w-full">

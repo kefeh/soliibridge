@@ -24,10 +24,16 @@ export default function ArcLocalPage() {
     <div className="theme-arclocal">
       <PageHero eyebrow={hero.eyebrow} title={hero.headline} subtitle={hero.subheading} tone="accent">
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button href={ARCLOCAL_LINKS.register} variant="primary" tone="white">
+          <Button
+            href={ARCLOCAL_LINKS.home}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            tone="white"
+          >
             {hero.primaryCtaLabel}
           </Button>
-          <Button href={ARCLOCAL_LINKS.login} variant="secondary" tone="white">
+          <Button href="/contact" variant="secondary" tone="white">
             {hero.secondaryCtaLabel}
           </Button>
         </div>

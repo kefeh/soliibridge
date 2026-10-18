@@ -26,8 +26,11 @@ export default function OfficeTrailPage() {
           <Button href="/contact" variant="primary" tone="white">
             {hero.primaryCtaLabel}
           </Button>
-          <Button href="#catalog" variant="secondary" tone="white">
+          <Button href="/contact" variant="secondary" tone="white">
             {hero.secondaryCtaLabel}
+          </Button>
+          <Button href="/officetrail/portal" variant="secondary" tone="white">
+            Launch Platform
           </Button>
         </div>
       </PageHero>

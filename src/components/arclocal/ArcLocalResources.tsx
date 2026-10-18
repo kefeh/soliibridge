@@ -9,7 +9,9 @@ import { ARCLOCAL_LINKS } from "@/lib/links";
 
 const icons = [Tag, LogIn, FileCode2];
 // Entry point per card (same order as the CMS list); extras fall back to /contact.
-const hrefs = [ARCLOCAL_LINKS.pricing, ARCLOCAL_LINKS.login];
+const hrefs = ["/contact", ARCLOCAL_LINKS.login];
+// Cards whose link should open in a new tab (the app login).
+const newTab = new Set<string>([ARCLOCAL_LINKS.login]);
 
 export default function ArcLocalResources() {
   const resources = getContentBlock("cms:arclocal:resources", arclocalSeed.resources);
@@ -28,6 +30,9 @@ export default function ArcLocalResources() {
               <FadeInUp key={`${resource.title}-${i}`} delay={i * 0.08}>
                 <a
                   href={hrefs[i] ?? "/contact"}
+                  {...(newTab.has(hrefs[i])
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="group flex h-full flex-col rounded-2xl border border-border-gray bg-surface-white p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(6,42,48,0.06)]"
                 >
                   <div className="flex items-center justify-between">

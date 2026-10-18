@@ -5,7 +5,6 @@ import Button from "@/components/ui/Button";
 import FadeInUp from "@/components/motion/FadeInUp";
 import { getContentBlock } from "@/lib/db";
 import { homeSeed } from "@/lib/cms-seed";
-import { ARCLOCAL_LINKS } from "@/lib/links";
 
 export default function Services() {
   const services = getContentBlock("cms:home:services", homeSeed.services);
@@ -18,7 +17,7 @@ export default function Services() {
             Two Platforms, One Ecosystem
           </h2>
           <p className="mt-4 text-lg text-slate-gray">
-            Tailored solutions for your digital communication and physical
+            Tailored solutions for your digital communication and
             operations needs.
           </p>
         </FadeInUp>
@@ -36,7 +35,7 @@ export default function Services() {
                 {services.arclocalDescription}
               </p>
               <div className="mt-8 flex items-center justify-between">
-                <Button href={ARCLOCAL_LINKS.login} variant="primary" tone="green">
+                <Button href="/arclocal" variant="primary" tone="green">
                   {services.arclocalCtaLabel}
                 </Button>
                 <ArrowRight

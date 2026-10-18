@@ -20,7 +20,7 @@ const columns = [
       { href: "/arclocal", label: "Overview" },
       { href: ARCLOCAL_LINKS.pricing, label: "Pricing" },
       { href: ARCLOCAL_LINKS.register, label: "Request Access" },
-      { href: ARCLOCAL_LINKS.login, label: "Customer Login" },
+      { href: ARCLOCAL_LINKS.login, label: "Customer Login", newTab: true },
       { href: "/arclocal", label: "API Documentation" },
     ],
   },
@@ -75,6 +75,9 @@ export default function Footer() {
                 <li key={`${column.title}-${link.label}`}>
                   <Link
                     href={link.href}
+                    {...("newTab" in link && link.newTab
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="text-sm font-medium text-white/80 transition-colors hover:text-brand-bright"
                   >
                     {link.label}

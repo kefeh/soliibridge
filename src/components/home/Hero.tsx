@@ -3,7 +3,6 @@ import Button from "@/components/ui/Button";
 import FadeInUp from "@/components/motion/FadeInUp";
 import { getContentBlock } from "@/lib/db";
 import { homeSeed } from "@/lib/cms-seed";
-import { ARCLOCAL_LINKS } from "@/lib/links";
 
 export default function Hero() {
   const hero = getContentBlock("cms:home:hero", homeSeed.hero);
@@ -39,7 +38,7 @@ export default function Hero() {
 
         <FadeInUp delay={0.3}>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href={ARCLOCAL_LINKS.register} variant="primary" tone="green">
+            <Button href="/arclocal" variant="primary" tone="green">
               {hero.primaryCtaLabel}
             </Button>
             <Button href="/officetrail" variant="primary" tone="orange">
