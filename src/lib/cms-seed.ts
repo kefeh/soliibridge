@@ -263,8 +263,13 @@ export const contactSeed = {
   },
   info: {
     address: "Counselor's Street Block2B1 Njengang, Bamenda, Cameroon",
-    phone: "+237 675 40 90 73",
-    email: "info@soliibridge.com",
+    phone: "+237 671 06 58 53",
+    email: "contact@soliibridge.com",
     hours: "Monday – Friday, 8:00 AM – 5:00 PM",
   },
+};
+
+export const footerSeed = {
+  tagline:
+    "Empowering businesses through smart digital communication and office solutions across Cameroon and beyond.",
 };

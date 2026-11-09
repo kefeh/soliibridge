@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { getContentBlock } from "@/lib/db";
-import { contactSeed } from "@/lib/cms-seed";
+import { contactSeed, footerSeed } from "@/lib/cms-seed";
 import { ARCLOCAL_LINKS } from "@/lib/links";
 
 const columns = [
@@ -37,6 +37,7 @@ const columns = [
 
 export default function Footer() {
   const info = getContentBlock("cms:contact:info", contactSeed.info);
+  const footer = getContentBlock("cms:footer:info", footerSeed);
 
   return (
     <footer className="bg-brand-darker text-white">
@@ -46,8 +47,7 @@ export default function Footer() {
             Solii<span className="text-brand-bright">Bridge</span>
           </span>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-            Empowering businesses through smart digital communication and office
-            solutions across Cameroon and beyond.
+            {footer.tagline}
           </p>
           <ul className="mt-6 space-y-3 text-sm text-white/70">
             <li className="flex items-start gap-3">

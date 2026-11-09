@@ -17,6 +17,7 @@ export default function PageHero({
   children,
 }: PageHeroProps) {
   const bgClass = tone === "accent" ? "bg-[var(--color-accent-deep)]" : "bg-brand-dark";
+  const isAccent = tone === "accent";
 
   return (
     <section className={`relative overflow-hidden ${bgClass}`}>
@@ -29,7 +30,11 @@ export default function PageHero({
               : "radial-gradient(circle at 15% 20%, rgba(95,176,185,0.2), transparent 45%), radial-gradient(circle at 85% 80%, rgba(95,176,185,0.12), transparent 40%)",
         }}
       />
-      <Container className="relative flex flex-col items-center gap-6 py-24 text-center lg:py-28">
+      <Container
+        className={`relative flex flex-col items-center text-center ${
+          isAccent ? "gap-5 py-14 lg:py-16" : "gap-6 py-24 lg:py-28"
+        }`}
+      >
         {eyebrow && (
           <FadeInUp>
             <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-white/80">
@@ -38,13 +43,23 @@ export default function PageHero({
           </FadeInUp>
         )}
         <FadeInUp delay={0.1}>
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+          <h1
+            className={`max-w-3xl font-extrabold leading-tight text-white ${
+              isAccent ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl"
+            }`}
+          >
             {title}
           </h1>
         </FadeInUp>
         {subtitle && (
           <FadeInUp delay={0.2}>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/75">{subtitle}</p>
+            <p
+              className={`max-w-2xl leading-relaxed text-white/75 ${
+                isAccent ? "text-base sm:text-lg" : "text-lg"
+              }`}
+            >
+              {subtitle}
+            </p>
           </FadeInUp>
         )}
         {children && <FadeInUp delay={0.3}>{children}</FadeInUp>}

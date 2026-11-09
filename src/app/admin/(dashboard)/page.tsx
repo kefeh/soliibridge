@@ -6,6 +6,7 @@ import {
   Printer,
   Briefcase,
   Mail,
+  PanelBottom,
   ArrowRight,
 } from "lucide-react";
 
@@ -45,6 +46,12 @@ const sections = [
     icon: Mail,
     title: "Contact",
     description: "Address, phone, email, and office hours.",
+  },
+  {
+    href: "/admin/footer",
+    icon: PanelBottom,
+    title: "Footer",
+    description: "The tagline shown in the site footer.",
   },
 ];
 

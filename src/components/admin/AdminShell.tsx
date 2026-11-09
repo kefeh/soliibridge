@@ -10,6 +10,7 @@ import {
   Printer,
   Briefcase,
   Mail,
+  PanelBottom,
   LogOut,
   ExternalLink,
 } from "lucide-react";
@@ -22,6 +23,7 @@ const navItems = [
   { href: "/admin/officetrail", label: "OfficeTrail", icon: Printer },
   { href: "/admin/careers", label: "Careers", icon: Briefcase },
   { href: "/admin/contact", label: "Contact", icon: Mail },
+  { href: "/admin/footer", label: "Footer", icon: PanelBottom },
 ];
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
