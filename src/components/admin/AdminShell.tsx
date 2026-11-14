@@ -10,6 +10,7 @@ import {
   Printer,
   Briefcase,
   Mail,
+  Inbox,
   PanelBottom,
   LogOut,
   ExternalLink,
@@ -17,6 +18,7 @@ import {
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/inbox", label: "Inbox", icon: Inbox },
   { href: "/admin/home", label: "Home Page", icon: Home },
   { href: "/admin/about", label: "About Page", icon: Info },
   { href: "/admin/arclocal", label: "ArcLocal", icon: MessageSquareText },
@@ -26,7 +28,22 @@ const navItems = [
   { href: "/admin/footer", label: "Footer", icon: PanelBottom },
 ];
 
-export default function AdminShell({ children }: { children: React.ReactNode }) {
+function UnreadBadge({ count }: { count: number }) {
+  if (count <= 0) return null;
+  return (
+    <span className="ml-auto inline-flex min-w-5 items-center justify-center rounded-full bg-brand px-1.5 text-xs font-bold leading-5 text-white">
+      {count > 99 ? "99+" : count}
+    </span>
+  );
+}
+
+export default function AdminShell({
+  children,
+  unread = 0,
+}: {
+  children: React.ReactNode;
+  unread?: number;
+}) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -63,6 +80,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
               >
                 <item.icon size={18} strokeWidth={1.5} />
                 {item.label}
+                {item.href === "/admin/inbox" && <UnreadBadge count={unread} />}
               </Link>
             );
           })}
@@ -113,6 +131,11 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
                 }`}
               >
                 {item.label}
+                {item.href === "/admin/inbox" && unread > 0 && (
+                  <span className="ml-1.5 rounded-full bg-brand px-1.5 text-xs font-bold text-white">
+                    {unread}
+                  </span>
+                )}
               </Link>
             );
           })}

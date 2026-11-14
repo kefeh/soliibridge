@@ -18,6 +18,10 @@ export function proxy(request: NextRequest) {
     }
   }
 
+  if (pathname.startsWith("/api/admin") && !authed) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   if (pathname.startsWith("/api/content") && request.method !== "GET" && !authed) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -26,5 +30,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/content/:path*"],
+  matcher: ["/admin/:path*", "/api/content/:path*", "/api/admin/:path*"],
 };

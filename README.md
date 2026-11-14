@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Contact & career submissions
+
+The contact form and the careers application form post to `/api/submissions/contact` and
+`/api/submissions/career`. Every submission is saved first (SQLite in `.data/cms.db`, resumes
+in `.data/uploads/`) and is then emailed to the address in the CMS contact details (Admin > Contact > Email, read at send
+time; separate several addresses with commas) when SMTP is configured. Editors can read everything, download resumes, mark messages read and
+delete them at `/admin/inbox`, so nothing depends on the mailbox.
+
+- Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` (see `.env.example`). Without `SMTP_HOST`
+  the inbox still works and each entry shows "Email not configured".
+- In production, keep `.data/` on a persistent volume and run a single instance.
+- Spam protection: hidden honeypot field plus an in-memory per-IP limit (5 messages or 3
+  applications per 10 minutes). Resumes must be PDF/DOC/DOCX, up to 5MB, and are checked by content.

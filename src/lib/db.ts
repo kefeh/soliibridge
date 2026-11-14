@@ -24,7 +24,7 @@ function openDb(): Database.Database {
 
 // Cache on globalThis so Turbopack's dev-mode HMR doesn't reopen the file
 // (and accumulate handles) on every module reload.
-const db = global.__cmsDb ?? openDb();
+export const db = global.__cmsDb ?? openDb();
 if (process.env.NODE_ENV !== "production") {
   global.__cmsDb = db;
 }

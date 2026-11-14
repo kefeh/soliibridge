@@ -19,6 +19,8 @@ const schema = z.object({
   name: z.string().min(2, "Please enter your full name"),
   email: z.string().email("Enter a valid email address"),
   phone: z.string().min(6, "Enter a valid phone number"),
+  position: z.string().min(1),
+  company: z.string().max(0).optional(),
   coverLetter: z
     .string()
     .min(20, "Tell us a bit about yourself (at least 20 characters)"),
@@ -37,21 +39,46 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-export default function ApplicationForm() {
+export const GENERAL_APPLICATION = "General application";
+
+export default function ApplicationForm({ positions = [] }: { positions?: string[] }) {
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    defaultValues: { position: GENERAL_APPLICATION },
+  });
 
   const resumeFile = watch("resume");
   const resumeName = resumeFile?.[0]?.name;
 
-  const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setSubmitted(true);
+  const onSubmit = async (values: FormValues) => {
+    setServerError(null);
+    const body = new FormData();
+    body.set("name", values.name);
+    body.set("email", values.email);
+    body.set("phone", values.phone);
+    body.set("position", values.position);
+    body.set("coverLetter", values.coverLetter);
+    body.set("company", values.company ?? "");
+    body.set("resume", values.resume[0]);
+
+    try {
+      const res = await fetch("/api/submissions/career", { method: "POST", body });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setServerError(data?.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setServerError("We couldn't reach the server. Check your connection and try again.");
+    }
   };
 
   if (submitted) {
@@ -75,6 +102,29 @@ export default function ApplicationForm() {
       className="mx-auto flex max-w-lg flex-col gap-6 rounded-2xl border border-border-gray bg-surface-white p-8 sm:p-10"
       noValidate
     >
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        className="sr-only"
+        aria-hidden="true"
+        {...register("company")}
+      />
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="position" className={labelClass}>
+          Position
+        </label>
+        <select id="position" className={inputClass} {...register("position")}>
+          <option value={GENERAL_APPLICATION}>{GENERAL_APPLICATION}</option>
+          {positions.map((title) => (
+            <option key={title} value={title}>
+              {title}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className={labelClass}>
           Full Name
@@ -132,6 +182,12 @@ export default function ApplicationForm() {
         />
         {errors.resume && <p className={errorClass}>{errors.resume.message as string}</p>}
       </div>
+
+      {serverError && (
+        <p role="alert" className={errorClass}>
+          {serverError}
+        </p>
+      )}
 
       <Button
         type="submit"

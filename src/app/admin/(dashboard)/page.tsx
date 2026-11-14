@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getCounts } from "@/lib/submissions";
 import {
   Home,
   Info,
@@ -6,6 +7,7 @@ import {
   Printer,
   Briefcase,
   Mail,
+  Inbox,
   PanelBottom,
   ArrowRight,
 } from "lucide-react";
@@ -56,6 +58,8 @@ const sections = [
 ];
 
 export default function AdminDashboardPage() {
+  const counts = getCounts();
+
   return (
     <div>
       <div className="mb-8">
@@ -67,6 +71,29 @@ export default function AdminDashboardPage() {
           immediately and appear on the live site.
         </p>
       </div>
+
+      <Link
+        href="/admin/inbox"
+        className="group mb-5 flex items-center gap-4 rounded-2xl border border-border-gray bg-surface-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(6,42,48,0.06)]"
+      >
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+          <Inbox size={20} strokeWidth={1.5} />
+        </div>
+        <div className="flex-1">
+          <h2 className="font-display font-bold text-slate-gray-dark">Inbox</h2>
+          <p className="mt-1 text-sm text-slate-gray">
+            {counts.unread > 0
+              ? `${counts.unread} unread of ${counts.all} — contact messages and job applications.`
+              : counts.all > 0
+                ? `All ${counts.all} read — contact messages and job applications.`
+                : "Contact messages and job applications will appear here."}
+          </p>
+        </div>
+        <ArrowRight
+          size={16}
+          className="text-brand transition-transform duration-200 group-hover:translate-x-1"
+        />
+      </Link>
 
       <div className="grid gap-5 sm:grid-cols-2">
         {sections.map((section) => (

@@ -21,6 +21,7 @@ type FormValues = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -31,12 +32,22 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (values: FormValues) => {
-    if (values.company) {
+    setServerError(null);
+    try {
+      const res = await fetch("/api/submissions/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setServerError(data?.error ?? "Something went wrong. Please try again.");
+        return;
+      }
       setSubmitted(true);
-      return;
+    } catch {
+      setServerError("We couldn't reach the server. Check your connection and try again.");
     }
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setSubmitted(true);
   };
 
   if (submitted) {
@@ -112,6 +123,12 @@ export default function ContactForm() {
         <textarea id="message" rows={5} className={inputClass} {...register("message")} />
         {errors.message && <p className={errorClass}>{errors.message.message}</p>}
       </div>
+
+      {serverError && (
+        <p role="alert" className={errorClass}>
+          {serverError}
+        </p>
+      )}
 
       <Button
         type="submit"
