@@ -7,3 +7,8 @@ export const ARCLOCAL_LINKS = {
   register: `${ARCLOCAL_APP}/register`,
   pricing: `${ARCLOCAL_APP}/#pricing`,
 } as const;
+
+/** Entry point into the OfficeTrail platform app (officetrail.soliibridge.com). */
+export const OFFICETRAIL_LINKS = {
+  platform: "https://officetrail.soliibridge.com/",
+} as const;

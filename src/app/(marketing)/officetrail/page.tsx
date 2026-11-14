@@ -7,6 +7,7 @@ import PortalTeaser from "@/components/officetrail/PortalTeaser";
 import BottomCta from "@/components/home/BottomCta";
 import { getContentBlock } from "@/lib/db";
 import { officetrailSeed } from "@/lib/cms-seed";
+import { OFFICETRAIL_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "OfficeTrail | Documentation, Printing & Branding | SoliiBridge",
@@ -29,7 +30,7 @@ export default function OfficeTrailPage() {
           <Button href="#catalog" variant="secondary" tone="white">
             {hero.secondaryCtaLabel}
           </Button>
-          <Button href="/officetrail/portal" variant="secondary" tone="white">
+          <Button href={OFFICETRAIL_LINKS.platform} variant="secondary" tone="white">
             Launch Platform
           </Button>
         </div>

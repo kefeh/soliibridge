@@ -116,10 +116,13 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ease-out ${
+      // Constant padding on purpose: the header is sticky and in the flow, so changing
+      // its height on scroll shifts the page, moves scrollY back across the threshold
+      // and makes the header flip-flop (visible flicker). Only paint properties animate.
+      className={`sticky top-0 z-50 py-4 transition-[background-color,box-shadow] duration-300 ease-out ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(6,42,48,0.06),0_8px_24px_rgba(6,42,48,0.06)] py-3"
-          : "bg-white/0 py-5"
+          ? "bg-white/90 shadow-[0_1px_0_rgba(6,42,48,0.06),0_8px_24px_rgba(6,42,48,0.06)] backdrop-blur-md"
+          : "bg-white/0"
       }`}
     >
       <Container className="flex items-center justify-between">
