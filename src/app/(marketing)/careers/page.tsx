@@ -17,6 +17,9 @@ export const dynamic = "force-dynamic";
 
 export default function CareersPage() {
   const hero = getContentBlock("cms:careers:hero", careersSeed.hero);
+  const positions = getContentBlock("cms:careers:vacancies", careersSeed.vacancies)
+    .map((vacancy) => vacancy.title.trim())
+    .filter((title, i, all) => title && all.indexOf(title) === i);
 
   return (
     <>
@@ -29,7 +32,7 @@ export default function CareersPage() {
             subtitle="Send us your details and resume — we review every application."
           />
           <div className="mt-14">
-            <ApplicationForm />
+            <ApplicationForm positions={positions} />
           </div>
         </Container>
       </section>

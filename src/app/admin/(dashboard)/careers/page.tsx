@@ -4,7 +4,7 @@ import { useContentSection } from "@/lib/useContentSection";
 import { careersSeed } from "@/lib/cms-seed";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminSection from "@/components/admin/AdminSection";
-import RepeatableList from "@/components/admin/RepeatableList";
+import VacancyEditor from "@/components/admin/VacancyEditor";
 import { inputClass, labelClass } from "@/components/ui/formStyles";
 
 export default function CareersCmsPage() {
@@ -57,25 +57,9 @@ export default function CareersCmsPage() {
 
         <AdminSection
           title="Current Vacancies"
-          description="Each role's title, location, description, and requirements (one per line)."
+          description="Each role's title, location, description, and any number of sections such as Key Responsibilities or Experience."
         >
-          <RepeatableList
-            items={vacancies.value}
-            onChange={vacancies.setValue}
-            itemLabel="Vacancy"
-            emptyItem={() => ({
-              title: "New Role",
-              location: "Bamenda, Cameroon · Full-time",
-              description: "",
-              requirements: "",
-            })}
-            fields={[
-              { key: "title", label: "Job Title" },
-              { key: "location", label: "Location / Type" },
-              { key: "description", label: "Description", type: "textarea" },
-              { key: "requirements", label: "Requirements (one per line)", type: "textarea" },
-            ]}
-          />
+          <VacancyEditor items={vacancies.value} onChange={vacancies.setValue} />
         </AdminSection>
       </div>
     </div>

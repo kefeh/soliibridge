@@ -6,6 +6,7 @@ import FadeInUp from "@/components/motion/FadeInUp";
 import Accordion from "@/components/ui/Accordion";
 import { getContentBlock } from "@/lib/db";
 import { careersSeed } from "@/lib/cms-seed";
+import { parseItems, vacancySections } from "@/lib/vacancies";
 
 const TONES = ["green", "orange", "brand"] as const;
 
@@ -34,18 +35,36 @@ export default function Vacancies() {
                     <Badge tone={TONES[i % TONES.length]}>{vacancy.location}</Badge>
                   </div>
                   <p>{vacancy.description}</p>
-                  <div>
-                    <p className="font-semibold text-slate-gray-dark">Requirements</p>
-                    <ul className="mt-2 flex flex-col gap-1.5 list-disc pl-5">
-                      {vacancy.requirements
-                        .split("\n")
-                        .map((req) => req.trim())
-                        .filter(Boolean)
-                        .map((req) => (
-                          <li key={req}>{req}</li>
-                        ))}
-                    </ul>
-                  </div>
+                  {vacancySections(vacancy)
+                    .map((section) => ({ heading: section.heading.trim(), items: parseItems(section.items) }))
+                    .filter((section) => section.items.length > 0)
+                    .map((section, j) => (
+                      <div
+                        key={`${section.heading}-${j}`}
+                        className="rounded-xl border border-border-gray bg-cloud-gray/60 p-5"
+                      >
+                        {section.heading && (
+                          <h4 className="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-slate-gray-dark">
+                            <span
+                              aria-hidden
+                              className="h-4 w-1 rounded-full bg-[var(--color-accent)]"
+                            />
+                            {section.heading}
+                          </h4>
+                        )}
+                        <ul className={`flex flex-col gap-2 ${section.heading ? "mt-3" : ""}`}>
+                          {section.items.map((item, k) => (
+                            <li key={`${item}-${k}`} className="flex gap-3">
+                              <span
+                                aria-hidden
+                                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                              />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   <Button href="#apply" variant="primary" tone="accent" className="self-start">
                     Apply for this Role
                   </Button>

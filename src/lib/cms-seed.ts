@@ -1,3 +1,5 @@
+import type { Vacancy } from "@/lib/vacancies";
+
 export const homeSeed = {
   hero: {
     eyebrow: "ArcLocal: One Click, Thousands of Subscribers — Simple. Reliable. Trustworthy.",
@@ -227,30 +229,27 @@ export const careersSeed = {
     subheading:
       "We are building the future of digital communications and office solutions. Discover opportunities to grow your career with us.",
   },
-  vacancies: [
+  vacancies: <Vacancy[]>[
     {
       title: "ArcLocal Backend Developer",
       location: "Bamenda, Cameroon · Full-time",
       description:
         "Build and scale the messaging infrastructure behind ArcLocal, handling bulk SMS delivery, OTP flows, and campaign scheduling for thousands of businesses.",
-      requirements:
-        "3+ years building backend services in Node.js, Python, or Go\nExperience with message queues and high-throughput systems\nFamiliarity with SMS gateway or telecom API integrations\nSolid understanding of relational databases and caching",
+      sections: [{ heading: "Requirements", items: "3+ years building backend services in Node.js, Python, or Go\nExperience with message queues and high-throughput systems\nFamiliarity with SMS gateway or telecom API integrations\nSolid understanding of relational databases and caching" }],
     },
     {
       title: "OfficeTrail Print Production Manager",
       location: "Bamenda, Cameroon · Full-time",
       description:
         "Oversee daily print production operations, from business cards to large-format banners, ensuring quality and on-time delivery for every order.",
-      requirements:
-        "3+ years managing a print production floor or workshop\nHands-on experience with offset and digital printing equipment\nStrong quality control and inventory management skills\nAbility to coordinate multiple orders under tight deadlines",
+      sections: [{ heading: "Requirements", items: "3+ years managing a print production floor or workshop\nHands-on experience with offset and digital printing equipment\nStrong quality control and inventory management skills\nAbility to coordinate multiple orders under tight deadlines" }],
     },
     {
       title: "B2B Sales Executive",
       location: "Bamenda, Cameroon · Full-time",
       description:
         "Drive new business across ArcLocal and OfficeTrail, building relationships with schools, NGOs, hospitals, and corporate clients.",
-      requirements:
-        "2+ years in B2B sales or account management\nExcellent communication skills in English and French\nComfortable with outbound prospecting and client presentations\nExperience selling SaaS or office services is a plus",
+      sections: [{ heading: "Requirements", items: "2+ years in B2B sales or account management\nExcellent communication skills in English and French\nComfortable with outbound prospecting and client presentations\nExperience selling SaaS or office services is a plus" }],
     },
   ],
 };
